@@ -1,0 +1,36 @@
+{
+    "name": "snovio-api",
+    "version": "0.0.1",
+    "description": "Snov.io interface",
+    "main": "./build/index.js",
+    "scripts": {
+        "test": "mocha",
+        "dev": "npm run build && babel-node ./build/sample --presets env",
+        "build": "babel src -s -D -d build --presets env"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/andrehrferreira/snovio-api.git"
+    },
+    "keywords": [
+        "dek",
+        "Snov.io",
+        "snovio"
+    ],
+    "author": "Andre Ferreira <andrehrf@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/andrehrferreira/snovio-api/issues"
+    },
+    "homepage": "https://github.com/andrehrferreira/snovio-api#readme",
+    "dependencies": {
+        "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "@dekproject/scope": "^1.1.4",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "dotenv": "^6.2.0",
+        "mocha": "^6.0.1"
+    }
+}
