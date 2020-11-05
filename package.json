@@ -1,6 +1,6 @@
 {
     "name": "snovio-api",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Snov.io interface",
     "main": "./build/index.js",
     "scripts": {
@@ -18,6 +18,9 @@
         "snovio"
     ],
     "author": "Andre Ferreira <andrehrf@gmail.com>",
+    "contributors": [
+		"Tobias Schlottke"
+	],
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/andrehrferreira/snovio-api/issues"
