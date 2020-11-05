@@ -96,7 +96,7 @@ class SnovIO{
             if(this.accessToken) resolve(this.accessToken)
             else{
                 request.post({
-                    url: 'https://app.snov.io/oauth/access_token',
+                    url: 'https://api.snov.io/v1/oauth/access_token',
                     json: {
                         grant_type: 'client_credentials',
                         client_id: this.apiUserID,
@@ -127,7 +127,7 @@ class SnovIO{
                 const token = await this.getAccessToken();
 
                 request.post({
-                    url: 'https://app.snov.io/restapi/get-domain-emails-count',
+                    url: 'https://api.snov.io/v1/get-domain-emails-count',
                     json: {
                         access_token: token,
                         domain: domain
@@ -159,8 +159,8 @@ class SnovIO{
                 const token = await this.getAccessToken();
                 params["access_token"] = token;
 
-                request.post({
-                    url: 'https://app.snov.io/restapi/get-domain-emails-with-info',
+                request.get({
+                    url: 'https://api.snov.io/v2/domain-emails-with-info',
                     json: params
                 }, (err, res, body) => {
                     if(err) reject(err);
@@ -191,7 +191,7 @@ class SnovIO{
                 let query = { "emails": emails };
 
                 request.post({
-                    url: `https://app.snov.io/restapi/get-emails-verification-status?${this.buildQuery(query)}`,
+                    url: `https://api.snov.io/v1/get-emails-verification-status?${this.buildQuery(query)}`,
                     json: { access_token: token }
                 }, (err, res, body) => {
                     if(err) reject(err);
@@ -220,7 +220,7 @@ class SnovIO{
                 let query = { "emails": emails };
 
                 request.post({
-                    url: `https://app.snov.io/restapi/add-emails-to-verification?${this.buildQuery(query)}`,
+                    url: `https://api.snov.io/v1/add-emails-to-verification?${this.buildQuery(query)}`,
                     json: { access_token: token }
                 }, (err, res, body) => {
                     if(err) reject(err);
@@ -249,7 +249,7 @@ class SnovIO{
                 const token = await this.getAccessToken();
 
                 request.post({
-                    url: 'https://app.snov.io/restapi/get-emails-from-names',
+                    url: 'https://api.snov.io/v1/get-emails-from-names',
                     json: {
                         access_token: token,
                         domain: domain,
@@ -282,7 +282,7 @@ class SnovIO{
                 const token = await this.getAccessToken();
 
                 request.post({
-                    url: 'https://app.snov.io/restapi/add-names-to-find-emails',
+                    url: 'https://api.snov.io/v1/add-names-to-find-emails',
                     json: {
                         access_token: token,
                         domain: domain,
@@ -315,7 +315,7 @@ class SnovIO{
                 const token = await this.getAccessToken();
 
                 request.post({
-                    url: 'https://app.snov.io/restapi/get-profile-by-email',
+                    url: 'https://api.snov.io/v1/get-profile-by-email',
                     json: {
                         access_token: token,
                         email: email

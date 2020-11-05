@@ -117,7 +117,7 @@ var SnovIO = function () {
             return new Promise(function (resolve, reject) {
                 if (_this.accessToken) resolve(_this.accessToken);else {
                     _request2.default.post({
-                        url: 'https://app.snov.io/oauth/access_token',
+                        url: 'https://api.snov.io/v1/oauth/access_token',
                         json: {
                             grant_type: 'client_credentials',
                             client_id: _this.apiUserID,
@@ -162,7 +162,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: 'https://app.snov.io/restapi/get-domain-emails-count',
+                                        url: 'https://api.snov.io/v1/get-domain-emails-count',
                                         json: {
                                             access_token: token,
                                             domain: domain
@@ -224,8 +224,8 @@ var SnovIO = function () {
 
                                     params["access_token"] = token;
 
-                                    _request2.default.post({
-                                        url: 'https://app.snov.io/restapi/get-domain-emails-with-info',
+                                    _request2.default.get({
+                                        url: 'https://api.snov.io/v2/domain-emails-with-info',
                                         json: params
                                     }, function (err, res, body) {
                                         if (err) reject(err);else if (res && res.statusCode === 200) resolve(body.emails);else reject("Error to call getDomainSearch");
@@ -286,7 +286,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: "https://app.snov.io/restapi/get-emails-verification-status?" + _this4.buildQuery(query),
+                                        url: "https://api.snov.io/v1/get-emails-verification-status?" + _this4.buildQuery(query),
                                         json: { access_token: token }
                                     }, function (err, res, body) {
                                         if (err) reject(err);else if (res && res.statusCode === 200) resolve(body);else reject("Error to call getEmailVerifier");
@@ -345,7 +345,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: "https://app.snov.io/restapi/add-emails-to-verification?" + _this5.buildQuery(query),
+                                        url: "https://api.snov.io/v1/add-emails-to-verification?" + _this5.buildQuery(query),
                                         json: { access_token: token }
                                     }, function (err, res, body) {
                                         if (err) reject(err);else if (res && res.statusCode === 200) resolve(body);else reject("Error to call addEmailsForVerification");
@@ -404,7 +404,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: 'https://app.snov.io/restapi/get-emails-from-names',
+                                        url: 'https://api.snov.io/v1/get-emails-from-names',
                                         json: {
                                             access_token: token,
                                             domain: domain,
@@ -467,7 +467,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: 'https://app.snov.io/restapi/add-names-to-find-emails',
+                                        url: 'https://api.snov.io/v1/add-names-to-find-emails',
                                         json: {
                                             access_token: token,
                                             domain: domain,
@@ -530,7 +530,7 @@ var SnovIO = function () {
 
 
                                     _request2.default.post({
-                                        url: 'https://app.snov.io/restapi/get-profile-by-email',
+                                        url: 'https://api.snov.io/v1/get-profile-by-email',
                                         json: {
                                             access_token: token,
                                             email: email

@@ -20,7 +20,7 @@ snov.getDomainSearch({
     domain: "saraiva.com.br",
     type: "all",
     limit: 1,
-    offset: 0
+    lastId: 0
 }).then(function (res) {
     console.log("Email:", res);
 }).catch(function (err) {
